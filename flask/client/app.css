@@ -1,0 +1,107 @@
+.switch-field {
+    display:flex;
+    margin-bottom: 36px;
+    
+}
+
+.switch-field input {
+    position: absolute;
+    clip: rect(0,0,0,0);
+    height:1px;
+    width:1px;
+    border:0;
+    
+}
+
+.switch-field label {
+    background-color: white;
+    color: black;
+    font-size:14px;
+    line-height: 1;
+    text-align: center;
+    padding:8px 16px;
+    margin-right: -1px;
+    border: 1px solid black;
+    transition: all 0.1s ease-in-out;
+
+}
+.switch-field label:hover{
+    cursor: pointer;
+}
+.switch-field input:checked + label {
+    background-color: #caaaf2;
+    box-shadow: none;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    max-width: 270px;  /* Adjust or remove to fit your design needs */
+    margin: 8px auto;
+    padding-left: 16px;  /* Check if this padding is needed, as it might affect inner widths */
+    text-align: center;
+    align-items: center;
+    box-sizing: border-box; /* Includes padding in the total width and height */
+}
+
+/* Styles for headings within the form for consistency */
+h2 {
+    font-size: 20px;  /* Adjust the font size as needed */
+    color: #333;  /* Set the color for headings */
+}
+
+.text-input, .drop_down, .zip_code_input {
+    width: 100%;  /* Full width to use available space */
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 15px;
+    height: 40px;
+    border-radius: 5px;
+    outline: 0;
+    border: 1px solid #ccc;
+}
+
+/* Flex container for city and zip code inputs */
+.city-zip-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;  /* Adjusts spacing between the city and zip inputs */
+    width: 100%;  /* Ensures container uses full width of the form */
+}
+
+.drop_down, .zip_code_input {
+    flex: 1;  /* Allows flexible filling of the available space */
+}
+.drop_down {
+    flex: 3;  /* Takes up 3 parts of the space */
+}
+
+.zip_code_input {
+    flex: 1;  /* Takes up 1 part of the space */
+}
+
+/* Button styling */
+.submit {
+    width: 100%;  /* Full width to match the inputs */
+    color: black;  /* Text color for visibility */
+    padding: 10px;
+    font-size: 15px;
+    height: 40px;  /* Matching input height for consistency */
+    border-radius: 5px;
+    border: 1px solid black;
+    cursor: pointer;  /* Cursor indicates clickable */
+    margin: 10px 0;  /* Spacing for separation from other elements */
+}
+
+/* Optional: Result display styling */
+.result {
+    background-color:#caaaf2;  /* Background to match the theme */
+    width: 100%;  /* Full width for consistency */
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 15px;
+    height: 30px;  /* Adjust height as per content */
+    margin: 25px 0 10px;  /* Spacing for visual separation */
+    text-align: center;
+}
+
+/* Additional styles can be added here based on other elements or specific needs */

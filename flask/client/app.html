@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="app.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>House Price Estimator</title>
+</head>
+<body>
+    <form class="form">
+        <h2> Square Foot</h2>
+        <input class ="text-input" type="email" id ="Sqft_element" class="floatLabel" name="Squareft" placeholder="1000"/>
+        <h2> Lot Size (acres)</h2>
+        <input class ="text-input" type="email" id ="lot_size_element" class="floatLabel" name="Squareft" placeholder="0.5"/>
+        <h2>Bedroom</h2>
+        <div class="switch-field">
+            <input type="radio" id="radio-bd-1" name="Bedroom_element" value="1"/>
+            <label for="radio-bd-1">1</label>
+            <input type="radio" id="radio-bd-2" name="Bedroom_element" value="2" checked/>
+            <label for="radio-bd-2">2</label>
+            <input type="radio" id="radio-bd-3" name="Bedroom_element" value="3"/>
+            <label for="radio-bd-3">3</label>
+            <input type="radio" id="radio-bd-4" name="Bedroom_element" value="4"/>
+            <label for="radio-bd-4">4</label>
+            <input type="radio" id="radio-bd-5" name="Bedroom_element" value="5"/>
+            <label for="radio-bd-5">5</label>
+            <input type="radio" id="radio-bd-6" name="Bedroom_element" value="6"/>
+            <label for="radio-bd-6">6</label>
+        </div>
+        <h2>Bath</h2>
+        <div class="switch-field">
+            <input type="radio" id="radio-bath-1" name="Bath_element" value="1" checked/>
+            <label for="radio-bath-1">1</label>
+            <input type="radio" id="radio-bath-2" name="Bath_element" value="2"/>
+            <label for="radio-bath-2">2</label>
+            <input type="radio" id="radio-bath-3" name="Bath_element" value="3"/>
+            <label for="radio-bath-3">3</label>
+            <input type="radio" id="radio-bath-4" name="Bath_element" value="4"/>
+            <label for="radio-bath-4">4</label>
+            <input type="radio" id="radio-bath-5" name="Bath_element" value="5"/>
+            <label for="radio-bath-5">5</label>
+            <input type="radio" id="radio-bath-6" name="Bath_element" value="6"/>
+            <label for="radio-bath-6">6</label>
+        </div>
+    
+        <h2>City and Zip Code</h2>
+        <div class="city-zip-container">
+            <select class="drop_down" name="" id="cities_element">
+                <option value="" disabled="disabled" selected="selected">Select a City</option>
+                <option>Alameda</option>
+                <option>Foster City</option>
+            </select>
+            <input class="text-input zip_code_input" type="text" id="zip_code_element" name="zipCode" placeholder="Zip Code"/>
+        </div>
+        <button class="submit" onclick="result()" type="button">Find the Price</button>
+        <div id="Estimated_price_element" class="result"> <h2></h2> </div>
+    </form>
+
+</body>
+</html>
