@@ -51,7 +51,7 @@ function result(){
     }, function(data, status) {
         console.log(data)
         console.log(data.estimate_price);
-        price.innerHTML = "<h2>" + data.estimate_price.toString() +"</h2>";
+        price.innerHTML = "<h2> $" + data.estimate_price.toString() +"</h2>";
         console.log(status);
     });
 }
