@@ -7,7 +7,7 @@ import numpy as np
 __cities = None
 __data_columns = None
 __model = None
-
+__zip_to_cluster = None
 
 app = Flask(__name__)
 CORS(app) 
@@ -43,6 +43,7 @@ def predict_home_price():
 
 
 def get_estimated_price(city,bedroom,bath,acre_lot,zip_code,sqft):
+    """
     try: 
         city_index = __data_columns.index(city.lower())
     except:
@@ -60,6 +61,33 @@ def get_estimated_price(city,bedroom,bath,acre_lot,zip_code,sqft):
     if city_index >= 0:
         x[city_index] = 1
     return round(__model.predict([x])[0],2)
+    """
+    
+    zip_code_str = str(zip_code)
+    cluster = __zip_to_cluster.get(zip_code_str, 0)
+
+    cluster = str(cluster)
+    
+    # Find the index for the city in your model's feature set
+    city_index = __data_columns.index(city.lower())
+    cluster_index = __data_columns.index(cluster)
+
+
+    print(type(__data_columns))
+    x = np.zeros(len(__data_columns))
+    
+    x[0] = bedroom
+    x[1] = bath
+    x[2] = acre_lot 
+    x[3] = sqft
+    
+    if city_index >= 0:
+        x[city_index] = 1
+    if cluster_index >= 0:
+        x[cluster_index] = 1
+    return round(__model.predict([x])[0],2)
+
+
 
 def get_cities_names():
     return __cities
@@ -68,10 +96,15 @@ def load_saved_artifacts():
     print("loading saved artifacts")
     global __data_columns
     global __cities
+    global __zip_to_cluster
     
     with open("./columns.json", 'r') as f:
         __data_columns = json.load(f)['data_columns']
-        __cities = __data_columns[5:]
+        __cities = __data_columns[9:]
+        
+    with open('./zip_to_cluster.json', 'r') as f:
+        __zip_to_cluster = json.load(f)
+        
         
     global __model
     with open('./Bay_Area_House_Price_Prediction_Model.pickle', 'rb') as f:
